@@ -11,86 +11,127 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fdfbf9;
-      color: #333;
+      background-color: #000;
+      color: #f9d77e;
     }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: #eaddca;
-      border-bottom: 1px solid #ccc;
+      background-color: #111;
       position: sticky;
       top: 0;
       z-index: 100;
+      border-bottom: 2px solid #f9d77e;
     }
+
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
-      color: #6d4c41;
+      color: #f9d77e;
     }
+
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: bold;
-      color: #6d4c41;
+      color: #f9d77e;
       border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
     }
+
     nav a:hover {
-      border-color: #bfa58a;
+      border-color: #f9d77e;
     }
 
     .slideshow {
       position: relative;
-      max-height: 80vh;
+      width: 100%;
+      height: 90vh;
       overflow: hidden;
     }
+
     .slide {
       display: none;
       width: 100%;
+      height: 100%;
       position: absolute;
-      text-align: center;
     }
+
     .slide img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
+
     .slide.active {
       display: block;
+      animation: fade 1s ease-in-out;
     }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .slide-description {
       position: absolute;
       bottom: 10%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(0, 0, 0, 0.7);
       padding: 1rem 2rem;
       border-radius: 5px;
       font-size: 1.2rem;
-      color: #6d4c41;
+      color: #f9d77e;
       font-weight: bold;
     }
 
     section {
-      padding: 2rem;
+      padding: 3rem 1rem;
       max-width: 1000px;
       margin: auto;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h2 {
       text-align: center;
-      color: #6d4c41;
+      color: #f9d77e;
       margin-bottom: 1rem;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .sub-section {
-      background-color: #ffffff;
-      margin: 1.5rem 0;
-      padding: 1.5rem;
+      background-color: #111;
+      margin: 2rem 0;
+      padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(249, 215, 126, 0.1);
+    }
+
+    .paragraph {
+      margin-top: 2rem;
+      background: #1a1a1a;
+      padding: 2rem;
+      border-left: 4px solid #f9d77e;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
     }
   </style>
 </head>
@@ -116,12 +157,20 @@
     </div>
     <div class="slide">
       <img src="images/pic03.jpg" alt="Silvia Marble" />
-      <div class="slide-description">Silvia – Beige stone with veins of luxury</div>
+      <div class="slide-description">Silvia – Soft-beige sophistication</div>
     </div>
     <div class="slide">
       <img src="images/pic04.jpg" alt="Sunny Menia Marble" />
-      <div class="slide-description">Sunny Menia – Egyptian heritage in stone</div>
+      <div class="slide-description">Sunny Menia – Egypt’s timeless legacy in stone</div>
     </div>
+  </section>
+
+  <section class="paragraph">
+    Egyptian marble is trusted by architects across **Italy**, **Germany**, **France**, **Spain**, and the **UK**. With natural gold and cream tones, our marble tells the story of timeless luxury.  
+    <br><br>
+    As a top Egyptian exporter, El-Motahida delivers high-performance stone sourced from Egypt’s most prestigious quarries. Whether you're crafting a villa, hotel, or corporate headquarters — our marble elevates your vision.  
+    <br><br>
+    Join elite developers across Europe who rely on our durability, elegance, and precision. El-Motahida isn't just selling stone — we're exporting the Egyptian spirit of art and excellence, slab by slab.
   </section>
 
   <section class="about sub-section">
@@ -138,26 +187,6 @@
   <section class="vision sub-section">
     <h2>Our Vision</h2>
     <p>To be the world’s most trusted name in premium marble and granite, setting benchmarks for quality, innovation, and timeless design.</p>
-  </section>
-
-  <section class="services sub-section">
-    <h2>Our Services</h2>
-    <ul>
-      <li>🔸 Marble & Granite Supply</li>
-      <li>🔸 Expert Installation</li>
-      <li>🔸 Global Export Activities</li>
-    </ul>
-  </section>
-
-  <section class="projects sub-section">
-    <h2>Landmark Projects</h2>
-    <p>We’ve delivered high-end marble solutions to projects like:</p>
-    <ul>
-      <li>🏨 Steigenberger Hotels, BATROS Group</li>
-      <li>✈️ Sharm El-Sheikh & Hurghada Airports</li>
-      <li>🏛 Al Azhar University, Zayed Al Nahyan Hospital</li>
-      <li>🌆 Cairo Tower, VIP Villas, and Government Buildings</li>
-    </ul>
   </section>
 
   <script>
