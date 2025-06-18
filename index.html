@@ -49,10 +49,10 @@
     .slideshow {
       position: relative;
       width: 100vw;
-      height: 50vh;
-      overflow: hidden;
+      height: 100vh;
       margin: 0;
       padding: 0;
+      overflow: hidden;
     }
 
     .slide {
@@ -60,12 +60,15 @@
       width: 100%;
       height: 100%;
       position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .slide.active {
@@ -156,7 +159,7 @@
   </section>
 
   <section class="paragraph">
-    <!-- You can manually add more content here in GitHub -->
+    <!-- You can add more lines manually here via GitHub -->
     Egyptian marble is trusted by architects across <strong>Italy</strong>, <strong>Germany</strong>, <strong>France</strong>, <strong>Spain</strong>, and the <strong>UK</strong>.
   </section>
 
