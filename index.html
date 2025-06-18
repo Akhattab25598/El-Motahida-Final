@@ -46,12 +46,16 @@
       border-color: #f9d77e;
     }
 
-    .slideshow {
-      position: relative;
+    .slideshow-row {
+      display: flex;
       width: 100vw;
       height: 100vh;
-      margin: 0;
-      padding: 0;
+    }
+
+    .slideshow-half {
+      position: relative;
+      width: 50%;
+      height: 100%;
       overflow: hidden;
     }
 
@@ -68,17 +72,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .slide.active {
       display: block;
       animation: fade 1s ease-in-out;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     .slide-description {
@@ -92,6 +90,12 @@
       font-size: 1.2rem;
       color: #f9d77e;
       font-weight: bold;
+      text-align: center;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     section {
@@ -139,24 +143,32 @@
     </nav>
   </header>
 
-  <section class="slideshow">
-    <div class="slide active">
-      <img src="images/pic01.jpg" alt="Sunny Light Marble" />
-      <div class="slide-description">Sunny Light – Creamy Egyptian elegance</div>
+  <!-- 2-column slideshow -->
+  <div class="slideshow-row">
+    <!-- Left slideshow -->
+    <div class="slideshow-half" id="left-slideshow">
+      <div class="slide active">
+        <img src="images/pic01.jpg" alt="Sunny Light Marble" />
+        <div class="slide-description">Sunny Light – Creamy Egyptian elegance</div>
+      </div>
+      <div class="slide">
+        <img src="images/pic02.jpg" alt="Galala Classic Marble" />
+        <div class="slide-description">Galala Classic – Natural golden tones</div>
+      </div>
     </div>
-    <div class="slide">
-      <img src="images/pic02.jpg" alt="Galala Classic Marble" />
-      <div class="slide-description">Galala Classic – Natural golden tones</div>
+
+    <!-- Right slideshow -->
+    <div class="slideshow-half" id="right-slideshow">
+      <div class="slide active">
+        <img src="images/pic03.jpg" alt="Silvia Marble" />
+        <div class="slide-description">Silvia – Soft-beige sophistication</div>
+      </div>
+      <div class="slide">
+        <img src="images/pic04.jpg" alt="Sunny Menia Marble" />
+        <div class="slide-description">Sunny Menia – Egypt’s timeless legacy in stone</div>
+      </div>
     </div>
-    <div class="slide">
-      <img src="images/pic03.jpg" alt="Silvia Marble" />
-      <div class="slide-description">Silvia – Soft-beige sophistication</div>
-    </div>
-    <div class="slide">
-      <img src="images/pic04.jpg" alt="Sunny Menia Marble" />
-      <div class="slide-description">Sunny Menia – Egypt’s timeless legacy in stone</div>
-    </div>
-  </section>
+  </div>
 
   <section class="paragraph">
     <!-- You can add more lines manually here via GitHub -->
@@ -180,13 +192,19 @@
   </section>
 
   <script>
-    const slides = document.querySelectorAll(".slide");
-    let index = 0;
-    setInterval(() => {
-      slides[index].classList.remove("active");
-      index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
-    }, 4000);
+    function rotateSlides(containerId) {
+      const container = document.getElementById(containerId);
+      const slides = container.querySelectorAll(".slide");
+      let index = 0;
+      setInterval(() => {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 4000);
+    }
+
+    rotateSlides("left-slideshow");
+    rotateSlides("right-slideshow");
   </script>
 
 </body>
